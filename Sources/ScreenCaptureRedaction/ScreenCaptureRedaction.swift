@@ -19,13 +19,13 @@ public struct ScreenCaptureRedactionView<Content: View, ReplacementView: View>: 
     var content: Content
     var replacementView: ReplacementView
     
-    init(@ViewBuilder content: @escaping (() -> Content), 
+    public init(@ViewBuilder content: @escaping (() -> Content), 
          @ViewBuilder replacingWith replacementView: @escaping (() -> ReplacementView)) {
         self.content = content()
         self.replacementView = replacementView()
     }
     
-    init(@ViewBuilder content: @escaping (() -> Content)) where ReplacementView == EmptyView {
+    public init(@ViewBuilder content: @escaping (() -> Content)) where ReplacementView == EmptyView {
         self.content = content()
         self.replacementView = EmptyView()
     }
